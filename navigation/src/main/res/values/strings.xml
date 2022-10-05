@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_base_url">https://pimentel.dev/</string>
+    <string name="navigation_login">login</string>
+    <string name="navigation_passwords">passwords</string>
+</resources>
