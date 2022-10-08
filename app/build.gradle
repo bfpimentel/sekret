@@ -29,7 +29,6 @@ android {
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":di"))
-    //    implementation(project(":spectre"))
 
     implementation(project(":features:login"))
     implementation(project(":features:passwords"))

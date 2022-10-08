@@ -11,13 +11,13 @@ import dev.pimentel.sekret.passwords.PasswordsScreen
 fun SekretNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = SekretDestinations.Login.build()
+        startDestination = SekretDestinations.Login.route()
     ) {
-        composable(SekretDestinations.Login.build()) {
+        composable(SekretDestinations.Login.route()) {
             LoginScreen()
         }
 
-        composable(SekretDestinations.Passwords.build()) {
+        composable(SekretDestinations.Passwords.route()) {
             PasswordsScreen()
         }
     }
