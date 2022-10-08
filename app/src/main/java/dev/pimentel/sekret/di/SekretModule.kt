@@ -7,10 +7,7 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 
 object SekretModule {
-    val module = module {
-        single<SekretNavigator> { (navController: NavController) ->
-            DefaultSekretNavigator(navController = navController)
-        }
+    val default = module {
     }
 
     val navigator: (navController: NavController) -> Module = { navController ->

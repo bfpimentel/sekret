@@ -11,9 +11,11 @@ class SekretApplication : Application() {
         super.onCreate()
 
         val koinInstance = startKoin {
-            modules(SekretModule.module)
+            modules(SekretModule.default)
         }
 
         SekretKoin.initialize(koinInstance)
     }
+
+
 }

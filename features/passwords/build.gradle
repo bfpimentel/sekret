@@ -10,5 +10,6 @@ android {
 }
 
 dependencies {
+    implementation(project(":di"))
     implementation(project(":navigation"))
 }

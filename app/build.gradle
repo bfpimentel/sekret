@@ -28,8 +28,11 @@ android {
 
 dependencies {
     implementation(project(":navigation"))
-    implementation(project(":login"))
-    implementation(project(":passwords"))
+    implementation(project(":di"))
+    //    implementation(project(":spectre"))
+
+    implementation(project(":features:login"))
+    implementation(project(":features:passwords"))
 
     // Instrumented Tests
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.2.1"

@@ -6,9 +6,8 @@ plugins {
 apply from: "$rootDir/common.gradle"
 
 android {
-    namespace "dev.pimentel.sekret.login"
+    namespace "dev.pimentel.sekret.di"
 }
 
 dependencies {
-    implementation(project(":navigation"))
 }

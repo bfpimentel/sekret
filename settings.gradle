@@ -17,5 +17,7 @@ rootProject.name = "sekret"
 
 include(":app")
 include(":navigation")
-include(":login")
-include(":passwords")
+include ':di'
+
+include(":features:login")
+include(":features:passwords")

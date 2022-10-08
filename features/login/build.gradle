@@ -1,0 +1,15 @@
+plugins {
+    id "com.android.library"
+    id "org.jetbrains.kotlin.android"
+}
+
+apply from: "$rootDir/common.gradle"
+
+android {
+    namespace "dev.pimentel.sekret.login"
+}
+
+dependencies {
+    implementation(project(":di"))
+    implementation(project(":navigation"))
+}
