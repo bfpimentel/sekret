@@ -2,29 +2,39 @@ package dev.pimentel.sekret.di
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelStoreOwner
 import org.koin.core.Koin
 import org.koin.core.KoinApplication
+import org.koin.core.annotation.KoinInternalApi
 import org.koin.core.component.KoinComponent
-import org.koin.core.module.Module
+import org.koin.core.parameter.ParametersDefinition
+import org.koin.core.qualifier.Qualifier
+import org.koin.core.scope.Scope
 
 object SekretKoin : KoinComponent {
-    internal var koinApplication: KoinApplication? = null
+    private var koinApplication: KoinApplication? = null
 
     fun initialize(koinApplication: KoinApplication) {
         this.koinApplication = koinApplication
     }
-}
 
-interface SekretKoinComponent : KoinComponent {
-    override fun getKoin(): Koin = SekretKoin.koinApplication?.koin
+    override fun getKoin(): Koin = koinApplication?.koin
         ?: throw IllegalStateException("Koin has not been initialized.")
 }
 
 @Composable
-inline fun <reified T : Any> sekretKoinGet(): T = remember { SekretKoin.getKoin().get() }
+fun sekretKoin(): Koin = remember { SekretKoin.getKoin() }
 
-fun Koin.loadModule(module: Module) {
-    loadModules(listOf(module))
-}
+@OptIn(KoinInternalApi::class)
+@Composable
+inline fun <reified T : ViewModel> Koin.viewModel(
+    qualifier: Qualifier? = null,
+    owner: ViewModelStoreOwner? = null,
+    scope: Scope = this.scopeRegistry.rootScope,
+    noinline parameters: ParametersDefinition? = null,
+): T = org.koin.androidx.compose.getViewModel(qualifier, owner, scope, parameters)
+
+
 
 
