@@ -1,14 +1,11 @@
 package dev.pimentel.sekret.login
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import dev.pimentel.sekret.navigation.SekretDestinations
 import dev.pimentel.sekret.navigation.SekretNavigator
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 
 internal class LoginViewModel(
     private val sekretNavigator: SekretNavigator
@@ -27,8 +24,6 @@ internal class LoginViewModel(
     }
 
     fun navigateToPasswords() {
-        viewModelScope.launch(Dispatchers.Main) {
-            sekretNavigator.navigate(SekretDestinations.Passwords)
-        }
+        sekretNavigator.navigate(SekretDestinations.Passwords)
     }
 }
